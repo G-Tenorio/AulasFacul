@@ -6,6 +6,7 @@ package atividadeAlunos;
 
 import java.util.List;
 import java.util.ArrayList;
+import java.util.Collections;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -141,7 +142,7 @@ public class AlunoView extends javax.swing.JDialog {
         Aluno alu = new Aluno(InputNome.getText(),Double.parseDouble(InputNota1.getText()),Double.parseDouble(InputNota2.getText()));
         
         listaAlunos.add(alu);
-        
+        Collections.sort(listaAlunos);
         somaTurma += alu.getMedia();
         
         InputNome.setText("");
@@ -168,7 +169,7 @@ public class AlunoView extends javax.swing.JDialog {
             
             double mediaSala = somaTurma/listaAlunos.size();
             
-            modelo.addRow(new Object[]{a.getNome(), a.getMedia(), a.getSituacao(), mediaSala});
+            modelo.addRow(new Object[]{a.getNome(), a.getMedia(), a.getSituacao(), mediaSala});          
         }   
         tabela.setModel(modelo);
     }
